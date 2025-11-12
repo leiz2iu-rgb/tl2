@@ -1,0 +1,102 @@
+.translator-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff5722, #ff9800);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+  z-index: 10;
+}
+
+.translator-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.translator-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.translator-button--active {
+  animation: translator-pulse 1s infinite ease-in-out;
+}
+
+.translator-button__icon {
+  font-size: 14px;
+}
+
+.translator-button__label {
+  letter-spacing: 0.02em;
+}
+
+@keyframes translator-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 152, 0, 0.1);
+  }
+}
+
+.translator-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 100%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.translator-toast--visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.translator-message {
+  margin-top: 6px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+[data-theme='dark'] .translator-message,
+html.dark .translator-message,
+body.dark .translator-message {
+  background-color: rgba(25, 25, 25, 0.85);
+  color: #f2f2f2;
+}
+
+.translator-message__translation {
+  white-space: pre-wrap;
+}
+
+.translator-message__meta {
+  margin-top: 4px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme='dark'] .translator-message__meta,
+html.dark .translator-message__meta,
+body.dark .translator-message__meta {
+  color: rgba(255, 255, 255, 0.6);
+}
