@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Shopee Chat Translator",
+  "version": "1.0.0",
+  "description": "Adds speech-to-translation and inline translation tools to Shopee chat conversations.",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.shopee.*/*",
+    "https://translate.googleapis.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.shopee.*/*"
+      ],
+      "js": [
+        "translator.js",
+        "contentScript.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html"
+}
